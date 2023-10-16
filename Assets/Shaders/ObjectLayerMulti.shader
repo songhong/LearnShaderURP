@@ -1,4 +1,4 @@
-Shader "Astro/Scene/ObjectLayerMulti"
+Shader "Learn/scene/ObjectLayerMulti"
 {
     Properties
     {
@@ -7,7 +7,7 @@ Shader "Astro/Scene/ObjectLayerMulti"
         _BumpScaleGlobal("Scale", Range(0.0, 1.0)) = 0.5
         _SplatMapGlobal("Splat Map", 2D) = "black" {}
         [PowerSlider(2.0)] _TransitionStrength("Transition Strength", Range(0.0, 1.0)) = 0.382
-        [PowerSlider(2.0)] _BaseStrength("Base Strength", Range(0.0, 1.0)) = 0.01
+        [PowerSlider(2.0)] _BaseStrength("Base Strength", Range(0.001, 1.0)) = 0.01
         [KeywordEnum(BASE, TWO_PAIR, TWO, THREE)] _LAYER("Splatmap Type", Float) = 0.0
         
         [Header(Base Layer)]
@@ -162,8 +162,7 @@ Shader "Astro/Scene/ObjectLayerMulti"
 
             #pragma vertex vert
             #pragma fragment frag
-
-            #define _INTERNAL_LAYER_TEX 1
+            
             #include "ObjectLayerCommon.hlsl" 
             
             ENDHLSL
@@ -177,5 +176,5 @@ Shader "Astro/Scene/ObjectLayerMulti"
 
 
     FallBack "Hidden/Universal Render Pipeline/FallbackError"
-    CustomEditor "Astro.ObjectLayerMulti" 
+    CustomEditor "ObjectLayerMulti" 
 }
